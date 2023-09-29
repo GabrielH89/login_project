@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db_connection = require('../config/db');
 
-const User = db_connection.define("user", {
+const User = db_connection.define("users", {
     email: {
         type: DataTypes.STRING,
         allowNull: false
@@ -10,9 +10,6 @@ const User = db_connection.define("user", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    image: {
-        type: DataTypes.STRING
-    }
 })
 
 module.exports = User;

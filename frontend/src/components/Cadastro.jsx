@@ -29,13 +29,17 @@ function Cadastro() {
                             "Content-Type": "application/json",
                         }
                     });
-                    navigate("/welcome");
+                    navigate("/welcome/" + email);
                 }  
             }else{
                 alert("Preencha todos os campos");
             }
         }catch(err) {
-            console.log("Error: " + err);
+            if(err.response && err.response.status === 409){
+                alert("Este e-mail já existe, tente outro!");
+            }else{
+                console.log("Erro: " + err);
+            }
         }
     }
 
